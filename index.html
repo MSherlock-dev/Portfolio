@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matthew Argote Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyCSdj1_0Ff1nZCHKJ5alhZx7HyfwN7VypoXAceU9EGT5GxpGXpi6Vs8g') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+    }
+
+    .section-bg {
+      background: rgba(149, 78, 42, 0.35);
+      padding: 4rem 1.25rem;
+      margin: 0 auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      width: 100%;
+    }
+
+    .fade-left, .fade-right {
+      opacity: 0;
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-left {
+      transform: translateX(-100px);
+    }
+
+    .fade-right {
+      transform: translateX(100px);
+    }
+
+    .animate {
+      opacity: 1 !important;
+      transform: translateX(0) !important;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <div class="overlay">
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 section-bg max-w-7xl fade-right w-full mx-auto">
+      <img src="photo.png" alt="Matthew Francis R. Argote" class="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover shadow-xl border-4 border-white mb-6" />
+      <h1 class="text-4xl sm:text-5xl font-extrabold mb-2">Matthew Francis R. Argote</h1>
+      <p class="text-lg sm:text-xl text-gray-700">BSIT Student | Web Developer in Progress</p>
+    </section>
+
+    <!-- About Section -->
+    <section class="fade-left section-bg max-w-4xl w-full mx-auto">
+      <h2 class="text-3xl font-bold mb-4">About Me</h2>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        I’m Matthew, a passionate BSIT student who focuses on building responsive websites and clean user interfaces. I aim to create experiences that are user-friendly, modern, and engaging. I’m eager to contribute my knowledge, learn from professionals, and grow as a web developer.
+      </p>
+      <p class="mt-4 text-gray-700 leading-relaxed">
+        I believe in writing clean, maintainable code and designing interfaces that not only look great but work smoothly. I am motivated to take on new challenges and open to internship or entry-level positions where I can contribute and grow.
+      </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section-bg max-w-6xl w-full mx-auto">
+      <h2 class="text-3xl font-bold mb-6 fade-right">Skills</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="bg-white p-6 rounded-xl shadow-md fade-left">HTML & CSS</div>
+        <div class="bg-white p-6 rounded-xl shadow-md fade-right">JavaScript</div>
+        <div class="bg-white p-6 rounded-xl shadow-md fade-left">React</div>
+        <div class="bg-white p-6 rounded-xl shadow-md fade-right">Tailwind CSS</div>
+        <div class="bg-white p-6 rounded-xl shadow-md fade-left">Git & GitHub</div>
+        <div class="bg-white p-6 rounded-xl shadow-md fade-right">UI/UX Basics</div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section-bg max-w-6xl w-full mx-auto">
+      <h2 class="text-3xl font-bold mb-6 text-center fade-left">Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-100 p-4 rounded-xl shadow hover:scale-105 transition-transform duration-300 fade-left">
+          <img src="https://source.unsplash.com/600x400/?code,website" alt="Project 1" class="rounded mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-semibold">Portfolio Site</h3>
+          <p class="text-gray-600">A clean personal portfolio built with HTML, CSS, and Tailwind.</p>
+        </div>
+        <div class="bg-gray-100 p-4 rounded-xl shadow hover:scale-105 transition-transform duration-300 fade-right">
+          <img src="https://source.unsplash.com/600x400/?dashboard,app" alt="Project 2" class="rounded mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-semibold">Admin Dashboard</h3>
+          <p class="text-gray-600">A modern responsive dashboard using React and Tailwind.</p>
+        </div>
+        <div class="bg-gray-100 p-4 rounded-xl shadow hover:scale-105 transition-transform duration-300 fade-left">
+          <img src="https://source.unsplash.com/600x400/?mobile,design" alt="Project 3" class="rounded mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-semibold">Mobile App UI</h3>
+          <p class="text-gray-600">Prototype of a mobile-friendly user interface built with Figma.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="fade-right section-bg max-w-5xl w-full text-center mx-auto">
+      <h2 class="text-3xl font-bold mb-4">Contact</h2>
+      <p class="text-lg text-gray-700">Let’s work together. Feel free to reach out!</p>
+      <a href="mailto:francismatthewargote@gmail.com" class="text-blue-600 underline text-xl">
+        francismatthewargote@gmail.com
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-700 text-sm py-6 section-bg max-w-5xl fade-left w-full mx-auto">
+      &copy; 2025 Matthew Francis R. Argote. All rights reserved.
+    </footer>
+  </div>
+
+  <!-- Animation Script -->
+  <script>
+    const faders = document.querySelectorAll('.fade-left, .fade-right');
+
+    function checkFadeIn() {
+      const windowHeight = window.innerHeight;
+      faders.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < windowHeight - 50 && rect.bottom > 50) {
+          el.classList.add('animate');
+        } else {
+          el.classList.remove('animate');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkFadeIn);
+    window.addEventListener('resize', checkFadeIn);
+    window.addEventListener('load', checkFadeIn);
+  </script>
+</body>
+</html>
