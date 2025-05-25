@@ -58,7 +58,7 @@ document.getElementById('searchBtn').addEventListener('click', () => {
 });
 
 function getWeather(location) {
-  const apiKey = '0dbe36f2c3a21887117832be7adff714';
+  const apiKey = '6d3aeced7342aa3ad5bdc9471c130282';
   const query = `${location},Philippines`;
   const url = `http://api.weatherstack.com/current?access_key=${apiKey}&query=${encodeURIComponent(query)}`;
 
