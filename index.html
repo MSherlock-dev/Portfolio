@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para kay Ella Raicy - From Matthew</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@300;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen" aria-label="Loading screen showing route from Pangasinan to Cebu in the Philippines">
+    <svg
+      id="ph-map"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 700 650"
+      role="img"
+      aria-labelledby="title desc"
+    >
+      <title>Philippines Map with Route</title>
+      <desc>Map of the Philippines showing Luzon and Visayas, Pangasinan and Cebu locations connected by a route line</desc>
+
+      <!-- Luzon -->
+      <path
+        d="M350 130 L300 180 L270 230 L280 300 L310 350 L340 380 L370 420 L390 410 L410 380 L430 350 L440 300 L440 250 L420 200 L400 170 Z"
+      />
+      <!-- Visayas -->
+      <path
+        d="M460 420 L430 460 L410 480 L390 520 L370 540 L350 560 L330 580 L320 600 L340 610 L380 610 L420 600 L460 580 L490 550 L500 510 L480 470 Z"
+      />
+
+      <!-- Pangasinan marker (Luzon) -->
+      <circle id="pangasinan-dot" cx="310" cy="250" r="14" />
+      <text x="310" y="235" font-family="Merriweather, serif" font-size="18" font-weight="700" text-anchor="middle">Pangasinan</text>
+
+      <!-- Cebu marker (Visayas) -->
+      <circle id="cebu-dot" cx="410" cy="540" r="14" />
+      <text x="410" y="525" font-family="Merriweather, serif" font-size="18" font-weight="700" text-anchor="middle">Cebu</text>
+
+      <!-- Route line -->
+      <path
+        id="route"
+        d="M310 250 C 350 320, 390 420, 410 540"
+        fill="none"
+      />
+
+      <!-- Moving dot -->
+      <circle id="moving-dot" r="12" />
+    </svg>
+    <p id="loading-text">Papunta ako sa'yo, Mahal... 💕</p>
+  </div>
+
+  <!-- Days counter on top -->
+  <div id="days-counter" aria-live="polite" aria-atomic="true" aria-label="Number of days Matthew and Ella have been together"></div>
+
+  <!-- Background video -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="https://cdn.videvo.net/videvo_files/video/free/2018-11/small_watermarked/181014_09_Sunset_04_preview.webm" type="video/webm" />
+    <source src="https://cdn.videvo.net/videvo_files/video/free/2018-11/small_watermarked/181014_09_Sunset_04_preview.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Floating hearts container -->
+  <div class="hearts"></div>
+
+  <!-- Main romantic content -->
+  <div class="overlay" role="main">
+    <h1>Para kay Ella Raicy 💖</h1>
+    <div class="ldr-info">Mula Luzon (Pangasinan) hanggang Visayas (Cebu), LDR tayo mula November 2024 hanggang ngayon</div>
+    <div class="message">
+      <p>
+        Sa bawat araw na lumilipas, lalo kong nararamdaman kung gaano kita kamahal kahit malayo tayo sa isa't isa. 
+        Ang mga texts at tawag natin ang nagbibigay liwanag sa madilim na gabi, at bawat alaala natin ay nagiinit sa puso ko. 
+        Simula noong November 2024, unti-unti tayong naging matibay na pag-asa, at nung March 28, 2025, nagsimula ang kwento natin bilang magkasintahan. 
+        Hindi hadlang ang distansya kapag totoo ang pagmamahal, kasi ikaw ang pangarap at inspirasyon ko araw-araw.
+      </p>
+      <p>
+        Salamat sa pagtitiis at sa walang sawang pag-intindi. Sa bawat sandali, pinapangarap kong magkita tayo sa Cebu at muling magsama.
+        Hanggang dumating ang araw na yun, mananatili akong tapat sa'yo, mahal ko.
+      </p>
+    </div>
+    <div class="signature">- Matthew Francis Argote</div>
+  </div>
+
+  <script>
+    // Countdown days from Nov 1, 2024 to today
+    function updateDaysCounter() {
+      const startDate = new Date('2024-11-01T00:00:00');
+      const today = new Date();
+      const diffTime = today - startDate;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      const counter = document.getElementById('days-counter');
+      counter.textContent = `Mga ${diffDays} araw na tayong magkasama ❤️`;
+    }
+    updateDaysCounter();
+    setInterval(updateDaysCounter, 1000 * 60 * 60); // update hourly
+
+    // Animate dot along route path
+    const route = document.getElementById('route');
+    const movingDot = document.getElementById('moving-dot');
+    const pathLength = route.getTotalLength();
+
+    let progress = 0;
+    const speed = 0.0025; // adjust speed here
+
+    function animateDot() {
+      progress += speed;
+      if (progress > 1) progress = 0;
+      const point = route.getPointAtLength(progress * pathLength);
+      movingDot.setAttribute('cx', point.x);
+      movingDot.setAttribute('cy', point.y);
+      requestAnimationFrame(animateDot);
+    }
+
+    animateDot();
+
+    // Loading screen fade out after 6 seconds
+    setTimeout(() => {
+      const loadingScreen = document.getElementById('loading-screen');
+      loadingScreen.style.opacity = 0;
+      setTimeout(() => loadingScreen.style.display = 'none', 1600);
+    }, 6000);
+  </script>
+</body>
+</html>
